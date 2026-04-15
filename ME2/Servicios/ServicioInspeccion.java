@@ -8,10 +8,10 @@ public class ServicioInspeccion {
     private Queue<Contenedor> cola;
 
     public ServicioInspeccion() {
-        cola = new LinkedList<Contenedor>();
+        cola = new LinkedList<Contenedor>(); 
     }
 
-    public void encolar(Contenedor contenedor) {
+    public void encolar(Contenedor contenedor) { 
         cola.add(contenedor);
     }
 
@@ -20,7 +20,7 @@ public class ServicioInspeccion {
     }
 
     public boolean estaVacia() {
-        return cola.isEmpty();
+        return cola.isEmpty(); 
     }
 
     public void mostrarCola() {

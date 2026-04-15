@@ -14,14 +14,14 @@ public class ServicioCarga {
         pila.push(contenedor); 
     }
 
-    public Contenedor desapilar() {
+    public Contenedor desapilar() { 
         if (pila.isEmpty()) {
-            return null;
+            return null; 
         }
         return pila.pop();
     }
 
-    public Contenedor retirarFondo() {
+    public Contenedor retirarFondo() { 
         if (pila.isEmpty()) {
             return null;
         }
