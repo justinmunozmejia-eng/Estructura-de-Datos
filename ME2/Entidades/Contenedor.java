@@ -1,18 +1,18 @@
 package ME2.Entidades;
 
-public class Contenedor {
-    private String id;
+public class Contenedor { 
+    private String id; 
     private double peso;
     private int prioridad;
 
     public Contenedor(String id, double peso, int prioridad) {
         this.id = id;
         this.peso = peso;
-        this.prioridad = prioridad;
+        this.prioridad = prioridad; 
     }
 
     public String getId() {
-        return id;
+        return id; 
     }
 
     public double getPeso() {
@@ -24,6 +24,6 @@ public class Contenedor {
     }
 
     public String toString() {
-        return "Contenedor{id='" + id + "', peso=" + peso + ", prioridad=" + prioridad + "}";
+        return "Contenedor{id='" + id + "', peso=" + peso + ", prioridad=" + prioridad + "}"; 
     }
-}
+} 
