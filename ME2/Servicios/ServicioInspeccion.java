@@ -1,10 +1,10 @@
-package ME2.Servicios;
+package ME2.Servicios; 
 
-import ME2.Entidades.Contenedor;
-import java.util.LinkedList;
+import ME2.Entidades.Contenedor; 
+import java.util.LinkedList; 
 import java.util.Queue;
 
-public class ServicioInspeccion {
+public class ServicioInspeccion { 
     private Queue<Contenedor> cola;
 
     public ServicioInspeccion() {
@@ -16,7 +16,7 @@ public class ServicioInspeccion {
     }
 
     public Contenedor atender() {
-        return cola.poll();
+        return cola.poll(); 
     }
 
     public boolean estaVacia() {
@@ -24,8 +24,8 @@ public class ServicioInspeccion {
     }
 
     public void mostrarCola() {
-        for (Contenedor c : cola) {
+        for (Contenedor c : cola) { 
             System.out.println(c);
         }
-    }
+    } 
 }
