@@ -2,12 +2,12 @@
 
 ## Descripción
 Este proyecto desarrolla un sistema básico en Java que simula el funcionamiento de un puerto inteligente llamado **Data-Bay**.  
-El objetivo principal es aplicar estructuras de datos fundamentales como **arreglos, matrices, colas y pilas**, usando programación orientada a objetos de forma sencilla y clara.
+El objetivo principal es aplicar estructuras de datos fundamentales como **arreglos, matrices, colas y pilas**, usando programación orientada a objetos de forma sencilla y clara. 
 
 ## Objetivo
-Modelar el recorrido de los contenedores dentro del puerto desde su registro en el manifiesto, su ubicación en el patio, su paso por inspección y su carga final en el buque.
+Modelar el recorrido de los contenedores dentro del puerto desde su registro en el manifiesto, su ubicación en el patio, su paso por inspección y su carga final en el buque. 
 
-## Estructura del proyecto
+## Estructura del proyecto 
 
 ### `entidades`
 Contiene la clase principal del modelo: 
@@ -17,9 +17,9 @@ Contiene la clase principal del modelo:
 ### `servicios`
 Contiene la lógica del sistema:
 
-- `ServicioManifiesto.java`: administra el arreglo de contenedores y calcula el peso total.
+- `ServicioManifiesto.java`: administra el arreglo de contenedores y calcula el peso total. 
 - `ServicioPatio.java`: administra la matriz donde se ubican los contenedores.
-- `ServicioInspeccion.java`: implementa una cola FIFO usando `LinkedList`.
+- `ServicioInspeccion.java`: implementa una cola FIFO usando `LinkedList`. 
 - `ServicioCarga.java`: implementa una pila LIFO usando `Stack` y una pila auxiliar.
 
 ### `app`
