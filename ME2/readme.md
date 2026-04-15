@@ -37,14 +37,6 @@ El programa realiza las siguientes acciones:
 5. Carga los contenedores en una pila que representa el buque.
 6. Muestra en consola cada paso del proceso.
 
-## Tecnologías utilizadas
-- Java
-- Programación orientada a objetos
-- Arreglos
-- Matrices
-- `LinkedList`
-- `Stack`
-
 ## Ejecución
 Para ejecutar el proyecto, compila la clase principal `Aplicacion.java` desde el paquete `app`.
 
