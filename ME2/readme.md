@@ -40,7 +40,10 @@ El programa realiza las siguientes acciones:
 ## Ejecución
 Para ejecutar el proyecto, compila la clase principal `Aplicacion.java` desde el paquete `app`.
 Si todo sale perfecto el resultado seria el siguiente.
-<img width="443" height="843" alt="image" src="https://github.com/user-attachments/assets/bcda1fd0-7868-46c7-8d10-ae995e542be3" />
+
+<img width="421" height="829" alt="image" src="https://github.com/user-attachments/assets/feaa735a-91bf-4c38-9f62-ea92ecba494a" />
+
+
 
 ## Autor
 Justin Muñoz Mejía
