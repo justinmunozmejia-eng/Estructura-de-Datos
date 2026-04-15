@@ -38,7 +38,9 @@ El programa realiza las siguientes acciones:
 6. Muestra en consola cada paso del proceso. 
 
 ## Ejecución
-Para ejecutar el proyecto, compila la clase principal `Aplicacion.java` desde el paquete `app`. 
+Para ejecutar el proyecto, compila la clase principal `Aplicacion.java` desde el paquete `app`.
+Si todo sale perfecto el resultado seria el siguiente.
+<img width="443" height="843" alt="image" src="https://github.com/user-attachments/assets/bcda1fd0-7868-46c7-8d10-ae995e542be3" />
 
 ## Autor
 Justin Muñoz Mejía
