@@ -28,13 +28,13 @@ Contiene la clase de ejecución principal:
 - `Aplicacion.java`: crea los contenedores de prueba y ejecuta todo el flujo del sistema. 
 
 ## Funcionalidad
-El programa realiza las siguientes acciones:
+El programa realiza las siguientes acciones: 
 
 1. Crea contenedores de prueba directamente en el código.
-2. Los registra en un arreglo como manifiesto.
+2. Los registra en un arreglo como manifiesto. 
 3. Los ubica en una matriz que representa el patio. 
-4. Envía a una cola los contenedores con mayor prioridad.
-5. Carga los contenedores en una pila que representa el buque.
+4. Envía a una cola los contenedores con mayor prioridad. 
+5. Carga los contenedores en una pila que representa el buque. 
 6. Muestra en consola cada paso del proceso. 
 
 ## Ejecución
