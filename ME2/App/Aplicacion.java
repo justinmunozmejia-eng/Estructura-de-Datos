@@ -1,15 +1,15 @@
 package ME2.App;
 
 import ME2.Entidades.Contenedor;
-import ME2.Servicios.ServicioCarga;
+import ME2.Servicios.ServicioCarga; 
 import ME2.Servicios.ServicioInspeccion;
 import ME2.Servicios.ServicioManifiesto;
-import ME2.Servicios.ServicioPatio;
+import ME2.Servicios.ServicioPatio; 
 
 public class Aplicacion {
     public static void main(String[] args) {
         Contenedor[] prueba = {
-            new Contenedor("C001", 1200.5, 3),
+            new Contenedor("C001", 1200.5, 3), 
             new Contenedor("C002", 950.0, 5),
             new Contenedor("C003", 1400.75, 2),
             new Contenedor("C004", 800.25, 4),
