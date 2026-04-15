@@ -1,21 +1,21 @@
 package ME2.Servicios;
 
-import ME2.Entidades.Contenedor;
+import ME2.Entidades.Contenedor; 
 
 public class ServicioManifiesto {
     private Contenedor[] manifiesto;
     private int cantidad;
 
     public ServicioManifiesto(int tamano) {
-        manifiesto = new Contenedor[tamano];
+        manifiesto = new Contenedor[tamano]; 
         cantidad = 0;
     }
 
-    public boolean registrarContenedor(Contenedor contenedor) {
+    public boolean registrarContenedor(Contenedor contenedor) { 
         if (cantidad >= manifiesto.length) {
             return false;
         }
-        manifiesto[cantidad] = contenedor;
+        manifiesto[cantidad] = contenedor; 
         cantidad++;
         return true;
     }
@@ -31,14 +31,14 @@ public class ServicioManifiesto {
     public Contenedor[] obtenerManifiesto() {
         Contenedor[] copia = new Contenedor[cantidad];
         for (int i = 0; i < cantidad; i++) {
-            copia[i] = manifiesto[i];
+            copia[i] = manifiesto[i]; 
         }
         return copia;
     }
 
     public void mostrarManifiesto() {
         for (int i = 0; i < cantidad; i++) {
-            System.out.println((i + 1) + ". " + manifiesto[i]);
+            System.out.println((i + 1) + ". " + manifiesto[i]); 
         }
     }
 }
