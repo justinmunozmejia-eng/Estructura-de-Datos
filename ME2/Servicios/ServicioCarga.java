@@ -1,17 +1,17 @@
 package ME2.Servicios;
 
-import ME2.Entidades.Contenedor;
+import ME2.Entidades.Contenedor; 
 import java.util.Stack;
 
 public class ServicioCarga {
-    private Stack<Contenedor> pila;
+    private Stack<Contenedor> pila; 
 
     public ServicioCarga() {
         pila = new Stack<Contenedor>();
     }
 
     public void apilar(Contenedor contenedor) {
-        pila.push(contenedor);
+        pila.push(contenedor); 
     }
 
     public Contenedor desapilar() {
@@ -35,7 +35,7 @@ public class ServicioCarga {
         Contenedor retirado = pila.pop();
 
         while (!auxiliar.isEmpty()) {
-            pila.push(auxiliar.pop());
+            pila.push(auxiliar.pop()); 
         }
 
         return retirado;
@@ -47,7 +47,7 @@ public class ServicioCarga {
 
     public void mostrarPila() {
         for (int i = pila.size() - 1; i >= 0; i--) {
-            System.out.println(pila.get(i));
+            System.out.println(pila.get(i)); 
         }
     }
 }
