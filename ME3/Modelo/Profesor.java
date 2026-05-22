@@ -1,4 +1,4 @@
-package ME3;
+package ME3.Modelo;
 
 public class Profesor extends Persona {
     private String departamento;
