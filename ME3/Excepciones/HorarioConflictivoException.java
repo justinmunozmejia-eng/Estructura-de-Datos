@@ -1,4 +1,4 @@
-package ME3.Exepciones;
+package ME3.Excepciones;
 
 public class HorarioConflictivoException extends Exception {
     public HorarioConflictivoException(String mensaje) {

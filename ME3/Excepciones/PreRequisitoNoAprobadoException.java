@@ -1,4 +1,4 @@
-package ME3.Exepciones;
+package ME3.Excepciones;
 
 public class PreRequisitoNoAprobadoException extends Exception {
     public PreRequisitoNoAprobadoException(String mensaje) {
