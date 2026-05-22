@@ -1,0 +1,308 @@
+# Planificación Académica - Sistema de Gestión Académica y Planificación de Rutas de Aprendizaje
+
+Sistema universitario desarrollado como proyecto final de Estructuras de Datos. El objetivo es administrar estudiantes, materias, horarios, prerrequisitos, rutas dentro del campus, reportes académicos y un sistema de deshacer/rehacer operaciones, usando estructuras de datos obligatorias de forma explícita y funcional.
+
+---
+
+## Descripción general
+
+Este proyecto implementa un sistema de gestión académica orientado a objetos que cumple con los requisitos del proyecto final de la asignatura de Estructuras de Datos.
+
+El sistema permite:
+
+- Registrar, buscar, listar y eliminar estudiantes.
+- Crear materias y administrar prerrequisitos.
+- Inscribir y cancelar inscripciones.
+- Manejar cola de espera cuando una materia está llena.
+- Reservar y liberar horarios en aulas mediante matrices.
+- Calcular rutas más cortas entre edificios con Dijkstra.
+- Generar reportes académicos con arreglos estáticos.
+- Navegar entre reportes con pilas.
+- Deshacer y rehacer operaciones importantes.
+- Procesar solicitudes masivas desde archivos CSV.
+
+---
+
+## Propósito del proyecto
+
+La finalidad de este desarrollo es demostrar el uso correcto de estructuras de datos en un contexto realista de gestión universitaria.
+
+Se busca evidenciar dominio de:
+
+- Arreglos nativos.
+- Matrices bidimensionales.
+- Listas enlazadas.
+- Pilas.
+- Colas.
+- HashMap.
+- TreeMap.
+- Herencia.
+- Encapsulamiento.
+- Polimorfismo.
+- Manejo de excepciones personalizadas.
+
+---
+
+## Tecnologías y enfoque
+
+El proyecto fue diseñado siguiendo la guía del curso y se estructuró para mantener coherencia entre todas las funcionalidades.
+
+### Lenguaje y plataforma
+- Java 17 o superior.
+- Arquitectura orientada a objetos.
+- Separación por paquetes.
+- Uso de estructuras de datos obligatorias.
+
+### Estructuras de datos utilizadas
+- `boolean[7][24]` para horarios de aulas.
+- `int[N][N]` para distancias entre edificios.
+- `Double[10][20]` para notas por semestre.
+- `Facultad[5]` para facultades fijas.
+- Lista enlazada para prerrequisitos e historial.
+- Cola para materia llena y procesamiento batch.
+- Pila para deshacer/rehacer y navegación de reportes.
+- `HashMap<String, Estudiante>` para búsqueda rápida por ID.
+- `TreeMap<String, Aula>` para aulas ordenadas.
+
+---
+
+## Requisitos funcionales cubiertos
+
+### Gestión de estudiantes
+- Registrar estudiante con nombre, ID, email y semestre.
+- Buscar estudiante por ID.
+- Listar estudiantes registrados.
+- Eliminar estudiante.
+- Mostrar historial académico.
+
+### Gestión de materias
+- Crear materias.
+- Agregar prerrequisitos.
+- Inscribir estudiantes si cumplen requisitos.
+- Enviar estudiantes a cola de espera si no hay cupo.
+- Liberar cupo y reasignar automáticamente al primero de la cola.
+
+### Gestión de horarios
+- Reservar horarios en aulas.
+- Liberar horarios.
+- Consultar disponibilidad.
+- Detectar conflictos de horario.
+
+### Rutas entre edificios
+- Registrar edificios.
+- Agregar conexiones con distancias.
+- Calcular la ruta más corta mediante Dijkstra.
+- Mostrar camino completo y distancia total.
+
+### Reportes académicos
+- Registrar notas por semestre.
+- Calcular promedio por semestre.
+- Calcular promedio acumulado.
+- Mostrar materias reprobadas.
+- Navegar entre reportes guardados.
+
+### Sistema deshacer / rehacer
+- Deshacer inscripción.
+- Deshacer cancelación.
+- Deshacer cambios de horario.
+- Deshacer registro de notas.
+- Deshacer eliminación de estudiante.
+- Rehacer operaciones deshechas.
+
+### Procesamiento batch
+- Leer solicitudes desde archivo CSV.
+- Encolar solicitudes.
+- Procesar en orden.
+- Mostrar resumen de éxitos y fallos.
+
+---
+
+## Estructura del proyecto
+
+```text
+src/main/java/co/edu/universidad/
+├── Aplicacion.java
+├── modelo/
+│   ├── Persona.java
+│   ├── Estudiante.java
+│   ├── Profesor.java
+│   ├── Materia.java
+│   ├── Aula.java
+│   ├── Facultad.java
+│   ├── Edificio.java
+│   ├── Operacion.java
+│   ├── ReporteAcademico.java
+│   └── SolicitudInscripcion.java
+├── excepciones/
+│   ├── PreRequisitoNoAprobadoException.java
+│   ├── HorarioConflictivoException.java
+│   ├── CupoLlenoException.java
+│   ├── EstudianteNoEncontradoException.java
+│   ├── ColaDeEsperaVaciaException.java
+│   ├── PilaDeshacerVaciaException.java
+│   └── ArchivoInvalidoException.java
+├── servicios/
+│   ├── ServicioEstudiante.java
+│   ├── ServicioMateria.java
+│   ├── ServicioHorario.java
+│   ├── ServicioRutas.java
+│   ├── ServicioBatch.java
+│   ├── ServicioHistorialOperaciones.java
+│   └── NavegadorReportes.java
+└── ui/
+    └── MenuPrincipal.java
+```
+
+---
+
+## Desarrollo paso a paso
+
+El proyecto se construyó de forma progresiva para reducir errores y mantener coherencia entre módulos.
+
+### Fase 1: modelo base
+Primero se definieron las clases fundamentales del dominio:
+- `Persona`
+- `Estudiante`
+- `Profesor`
+- `Materia`
+- `Aula`
+- `Facultad`
+- `Edificio`
+
+Esto permitió establecer la base de la herencia, el encapsulamiento y los atributos necesarios para el resto del sistema.
+
+### Fase 2: excepciones personalizadas
+Después se crearon las excepciones necesarias para manejar errores de negocio y validaciones específicas:
+- prerrequisitos no aprobados,
+- conflicto de horario,
+- cupo lleno,
+- estudiante no encontrado,
+- cola vacía,
+- pila vacía,
+- archivo inválido.
+
+### Fase 3: servicios principales
+Se implementaron los servicios de negocio para separar la lógica del menú:
+- servicio de estudiantes,
+- servicio de materias,
+- servicio de horarios,
+- servicio de rutas,
+- servicio batch,
+- servicio de historial de operaciones,
+- navegador de reportes.
+
+### Fase 4: reportes y navegación
+Luego se creó el módulo de reportes académicos con arreglos estáticos y la navegación por pila para consultar el historial de reportes.
+
+### Fase 5: deshacer y rehacer
+Se integró un sistema de pilas para almacenar operaciones y poder restaurar estados anteriores de forma controlada.
+
+### Fase 6: menú principal
+Finalmente se construyó la interfaz por consola para acceder a todas las funcionalidades desde un solo punto.
+
+---
+
+## Justificación de estructuras
+
+Este proyecto usa cada estructura de datos con un propósito concreto para cumplir la guía del curso.
+
+- **Arreglos y matrices**: se usan porque la guía exige implementación nativa para horarios, distancias y notas.
+- **Lista enlazada**: se usa para prerrequisitos e historial, ya que son secuencias dinámicas que pueden crecer con el uso.
+- **Colas**: se usan para cola de espera y procesamiento batch, porque ambos procesos deben seguir orden FIFO.
+- **Pilas**: se usan para deshacer/rehacer y navegación de reportes, porque se necesita acceso LIFO.
+- **HashMap**: se usa para localizar estudiantes rápidamente por ID.
+- **TreeMap**: se usa para mantener aulas ordenadas por clave.
+
+---
+
+## Excepciones personalizadas
+
+El sistema define excepciones específicas para reflejar errores esperados del dominio:
+
+- `PreRequisitoNoAprobadoException`
+- `HorarioConflictivoException`
+- `CupoLlenoException`
+- `EstudianteNoEncontradoException`
+- `ColaDeEsperaVaciaException`
+- `PilaDeshacerVaciaException`
+- `ArchivoInvalidoException`
+
+Estas excepciones permiten un control más claro, limpio y profesional de los errores.
+
+---
+
+## Cómo ejecutar el proyecto
+
+### Requisitos previos
+- Java 17 o superior.
+- IDE compatible con Java.
+- Terminal o consola.
+- Archivo CSV para pruebas de batch.
+
+### Ejecución
+1. Abrir el proyecto en el IDE.
+2. Compilar las clases.
+3. Ejecutar `Aplicacion.java`.
+4. Usar el menú para probar las funcionalidades.
+
+### Ejemplo de archivo CSV
+```csv
+2024001,CALC101
+2024002,FIS101
+2024003,PROG201
+```
+
+---
+
+## Casos de uso incluidos
+
+El sistema fue diseñado para cubrir los ejemplos esperados por la guía:
+
+- Registro y búsqueda de estudiante.
+- Cola de espera cuando la materia está llena.
+- Deshacer y rehacer con pilas.
+- Reserva y conflicto de horarios.
+- Ruta más corta con Dijkstra.
+- Reportes académicos.
+- Procesamiento batch desde CSV.
+
+---
+
+## Recomendaciones para revisar el código
+
+Si quieres entender el proyecto paso a paso, este es el orden recomendado de lectura:
+
+1. `modelo/Persona.java`
+2. `modelo/Estudiante.java`
+3. `modelo/Materia.java`
+4. `modelo/Aula.java`
+5. `excepciones/`
+6. `servicios/ServicioEstudiante.java`
+7. `servicios/ServicioMateria.java`
+8. `servicios/ServicioHorario.java`
+9. `servicios/ServicioRutas.java`
+10. `servicios/ReporteAcademico.java`
+11. `servicios/NavegadorReportes.java`
+12. `servicios/ServicioHistorialOperaciones.java`
+13. `servicios/ServicioBatch.java`
+14. `ui/MenuPrincipal.java`
+15. `Aplicacion.java`
+
+---
+
+## Estado del proyecto
+
+Este repositorio representa una implementación progresiva del proyecto final de Estructuras de Datos, desarrollada para cumplir con la guía académica, el uso obligatorio de estructuras de datos y los requisitos de POO.
+
+La intención es que cualquier persona pueda leer primero este README y luego navegar el código con una idea clara de qué hace cada módulo y por qué existe.
+
+---
+
+## Autor
+Esteban Rojas
+
+---
+
+## Observación final
+
+Este proyecto fue pensado para ser explicable, demostrable y defendible académicamente. La estructura busca mostrar no solo que funciona, sino también que se entiende su lógica interna y su relación con cada estructura de datos usada.
