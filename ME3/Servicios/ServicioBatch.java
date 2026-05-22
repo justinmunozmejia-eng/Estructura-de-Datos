@@ -2,6 +2,7 @@ package ME3.Servicios;
 
 import ME3.Excepciones.ArchivoInvalidoException;
 import ME3.Excepciones.CupoLlenoException;
+import ME3.Excepciones.EstudianteNoEncontradoException;
 import ME3.Excepciones.PreRequisitoNoAprobadoException;
 import ME3.Modelo.SolicitudInscripcion;
 
@@ -9,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 import java.util.Queue;
 
 public class ServicioBatch {
@@ -53,7 +53,7 @@ public class ServicioBatch {
         }
     }
 
-    public ResultadoBatch procesarCola() {
+    public ResultadoBatch procesarCola() throws EstudianteNoEncontradoException {
         int exitosas = 0;
         int fallidas = 0;
         StringBuilder detalle = new StringBuilder();

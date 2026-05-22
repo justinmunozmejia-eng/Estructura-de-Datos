@@ -1,6 +1,7 @@
 package ME3.Servicios;
 
 import ME3.Excepciones.CupoLlenoException;
+import ME3.Excepciones.EstudianteNoEncontradoException;
 import ME3.Excepciones.PreRequisitoNoAprobadoException;
 import ME3.Modelo.Estudiante;
 import ME3.Modelo.Materia;
@@ -50,7 +51,7 @@ public class ServicioMateria {
     }
 
     public void inscribirEstudiante(String idEstudiante, String codigoMateria)
-            throws PreRequisitoNoAprobadoException, CupoLlenoException {
+            throws PreRequisitoNoAprobadoException, CupoLlenoException, EstudianteNoEncontradoException {
 
         Estudiante estudiante = servicioEstudiante.buscarPorId(idEstudiante);
         Materia materia = buscarMateria(codigoMateria);
@@ -73,7 +74,7 @@ public class ServicioMateria {
     }
 
     public String asignarDesdeCola(String codigoMateria)
-            throws CupoLlenoException {
+            throws CupoLlenoException, EstudianteNoEncontradoException {
         Materia materia = buscarMateria(codigoMateria);
         Queue<String> cola = colaEsperaPorMateria.get(codigoMateria);
         if (cola == null || cola.isEmpty()) {

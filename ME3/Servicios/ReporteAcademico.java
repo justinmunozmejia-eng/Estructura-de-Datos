@@ -1,4 +1,4 @@
-package ME3.Modelo;
+package ME3.Servicios;
 
 import java.util.ArrayList;
 import java.util.List;
