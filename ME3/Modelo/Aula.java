@@ -1,5 +1,6 @@
 package ME3.Modelo;
 
+
 public class Aula {
     private String nombre;
     private int capacidad;
@@ -28,11 +29,12 @@ public class Aula {
         return !horario[dia][hora];
     }
 
-    public void reservar(int dia, int hora, int duracion) {
+    public void reservar(int dia, int hora, int duracion) throws IllegalStateException {
         validarDiaHora(dia, hora);
         validarDuracion(duracion);
+
         if (hora + duracion > 24) {
-            throw new IllegalArgumentException("La reserva supera el rango permitido del dia");
+            throw new IllegalArgumentException("La reserva supera el limite del dia");
         }
 
         for (int h = hora; h < hora + duracion; h++) {
@@ -49,8 +51,9 @@ public class Aula {
     public void liberar(int dia, int hora, int duracion) {
         validarDiaHora(dia, hora);
         validarDuracion(duracion);
+
         if (hora + duracion > 24) {
-            throw new IllegalArgumentException("La liberacion supera el rango permitido del dia");
+            throw new IllegalArgumentException("La liberacion supera el limite del dia");
         }
 
         for (int h = hora; h < hora + duracion; h++) {
